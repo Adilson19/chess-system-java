@@ -12,10 +12,12 @@ public class Program {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		//	33- Instanciando uma partida de xadrez e imprimindo ela
 		ChessMatch chessMatch = new ChessMatch();
 		while(true) {
 			try {
 				UI.clearScreen();
+				//	34- método para imprimir as peças da partida
 				UI.printBoard(chessMatch.getPieces());
 				System.out.println();
 				System.out.print("Source: ");

@@ -5,22 +5,28 @@ import boardgame.Piece;
 import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rock;
-
+//	24- Criamos a classe ChessMatch que é o coração do nosso sistema, aqui é onde vamos colocar as regras do Xadrez
 public class ChessMatch {
+	//	25- Declaramos o atributo board da Classe Board, porque a partida tem que ter um tabuleiro
 	private Board board;
-	
+	//	26- Criamos o construtor ChessMatch para mostrar em quais condições deve começar um jogo
 	public ChessMatch() {
+		//	27- Deve começar com 8 - row por 8 - column
 		board = new Board(8, 8);
 		initialSetup();
 	}
-	
+	//	28- O método ChessPiece deve retornar uma matriz de Xadrez correspondente a partida
 	public ChessPiece[][] getPieces(){
+		//	29- Criando uma variavel temporária - vai ter a quantidade de linhas e colunas do tabuleiro
 		ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
+		//	30-	Percorrendo a matriz de piece e para cada fazemos um DownCast
 		for(int i = 0; i<board.getRows(); i++) {
 			for(int j = 0; j<board.getColumns(); j++) {
+				//	31-	Fazendo um Downcast para (ChessPiece)
 				mat[i][j] = (ChessPiece) board.piece(i, j);
 			}
 		}
+		//	32- Retornando a matriz de peças
 		return mat;
 	}
 	

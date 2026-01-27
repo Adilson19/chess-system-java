@@ -48,22 +48,25 @@ public class UI {
 			throw new InputMismatchException("Error reading ChessPosition. Valid values are from a1 to h8.");
 		}
 	}
-	
+	//	35- Metodo estatico, vai receber como parámetro o ChessPiece para  impressão
 	public static void printBoard(ChessPiece[][] pieces) {
 		for(int i = 0; i<pieces.length; i++) {
 			System.out.print((8 - i) + " ");
 			for(int j = 0; j<pieces.length; j++) {
+				// 40- Imprimindo a peça
 				printPiece(pieces[i][j]);
 			}
 			System.out.println();
 		}
+		//	41- Linha Especial para imprimir as letras
 		System.out.println("  a b c d e f g h");
 	}
-	
+	//	36- Método usado para imprimir as peças
 	private static void printPiece(ChessPiece piece) {
+		//	37- Se as peças for igual a null então vai preencher com (-)
     	if (piece == null) {
             System.out.print("-");
-        }
+        }//	38- Caso contrário vai imprimir a peça
         else {
             if (piece.getColor() == Color.WHITE) {
                 System.out.print(ANSI_WHITE + piece + ANSI_RESET);
@@ -72,6 +75,7 @@ public class UI {
                 System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
             }
         }
+    	//	39-	Para que as peças não fiquem muito juntas
         System.out.print(" ");
 	}
 }
