@@ -37,12 +37,15 @@ public class Board {
 		//	18- Vai retornar a matriz piece na posição
 		return pieces[position.getRow()][position.getColumn()];
 	}
-	
+	//	42- Criamos o metodo placePiece que é o responsável por colocar a peça na posição indicada no tabuleiro
 	public void placePiece(Piece piece, Position position) {
+		//	
 		if(thereIsAPiece(position)) {
 			throw new BoardException("There is already a piece on position " + position);
 		}
+		//	43- Vai pegar na matriz de peças na posição dada e colocar os valores que vieram no metodo como argumento
 		pieces[position.getRow()][position.getColumn()] = piece;
+		//	44- Vai pegar na posição que é nula e vai atribuir o valor da posição que nos foi dada como argumento
 		piece.position = position;
 	}
 	
@@ -59,7 +62,7 @@ public class Board {
 		pieces[position.getRow()][position.getColumn()] = null;
 		return aux;
 	}
-	
+	//	58- positionExists
 	private boolean positionExists(int row, int column) {
 		return row >= 0 && row < rows && column >= 0 && column < columns;
 	}

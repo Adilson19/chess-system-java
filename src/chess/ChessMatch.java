@@ -54,8 +54,11 @@ public class ChessMatch {
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
 	}
-	
+	//	53- Criamos um metodo responsável por criar as peças no tabuleiro
 	private void initialSetup() {
+		
+		//	Nova maneira de percorrer...
+		//	54- Colocando as peças na devida posição
 		placeNewPiece('c', 1, new Rock(board, Color.WHITE));
         placeNewPiece('c', 2, new Rock(board, Color.WHITE));
         placeNewPiece('d', 2, new Rock(board, Color.WHITE));
