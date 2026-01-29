@@ -50,15 +50,16 @@ public class ChessMatch {
 			throw new ChessException("There is no piece on source position");
 		}
 	}
-	
+	//	88- Criamos o método placeNewPiece para receber as coordenadas do xadrez e a peça
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
+		//		89- Pegamos o metodo que sabe o local da peça, criamos uma nova posição e convertemos para posição de matriz(toString)
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
 	}
 	//	53- Criamos um metodo responsável por criar as peças no tabuleiro
 	private void initialSetup() {
 		
 		//	Nova maneira de percorrer...
-		//	54- Colocando as peças na devida posição
+		//	90- Colocando as peças na devida posição
 		placeNewPiece('c', 1, new Rock(board, Color.WHITE));
         placeNewPiece('c', 2, new Rock(board, Color.WHITE));
         placeNewPiece('d', 2, new Rock(board, Color.WHITE));
@@ -74,6 +75,7 @@ public class ChessMatch {
         placeNewPiece('d', 8, new King(board, Color.BLACK));
 		
 		//	Antiga maneira de percorrer....
+		//	54- Colocando as peças na devida posição
 		//board.placePiece(new King(board, Color.WHITE), new Position(7, 4));
 	}
 }
