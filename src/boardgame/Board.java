@@ -53,18 +53,24 @@ public class Board {
 		//	44- Vai pegar na posição que é nula e vai atribuir o valor da posição que nos foi dada como argumento
 		piece.position = position;
 	}
-	
+	//	94- Metodo para remover peças
 	public Piece removePiece(Position position) {
 		//	Programacao defensiva lancando uma excessao
+		//	95- Se a posição não existe no tabuleiro
 		if(!positionExists(position)) {
 			throw new BoardException("Position not on the board");
 		}
+		//	96- Se a posição é nula significa que não há nenhuma peça no tabuleiro
 		if(piece(position) == null) {
 			return null;
 		}
+		//	97- Procedimento para remover peça do tabuleiro, declaramos uma variavel aux do tipo Piece(peça) que vai receber a posição
 		Piece aux = piece(position);
+		//	98- Atribuimos um valor nulo para a variavel - retiramos a peça do tabuleiro
 		aux.position = null;
+		//	99- Pegamos o valor da coluna e a linha e atribuimos o valor nulo
 		pieces[position.getRow()][position.getColumn()] = null;
+		//	100- retornamos o valor já removido
 		return aux;
 	}
 	//	59- positionExists pela linha e pela coluna

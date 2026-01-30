@@ -29,24 +29,34 @@ public class ChessMatch {
 		//	32- Retornando a matriz de peças
 		return mat;
 	}
-	
+	//	109- Metodo para mover a peça, recebe a origem e o destino
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
+		//	110- Convertendo as posições das peças para posições da matriz
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
+		//	111- Validando a posição de origem
 		validateSourcePosition(source);
+		//	112- Declaramos uma variavel do tipo Piece e ela vai receber o metodo para realizar um movimento de um ponto para outro
 		Piece capturedPiece = makeMove(source, target);
+		//	113- Retorna a peça capturada e fazemos um downcast porque o capturedPiece era do tipo Piece e ele agora vai retornar um tipo ChessPiece
 		return (ChessPiece) capturedPiece;
 	}
-	
+	//	117- Metodo para fazer um movimento
 	private Piece makeMove(Position source, Position target) {
+		//	118- Criamos uma varivel p do tipo Piece que vai chamar o método removePiece com o argumento source(Origem)
 		Piece p = board.removePiece(source);
+		//	119- Criamos o capturedPiece que vai chamar o metodo removePiece da Class board(tabuleiro) com o argumento target(Destino)
 		Piece capturedPiece = board.removePiece(target);
+		//	120- colocando a peça da posição de Origem (que havia sido capturada) para a posição de Destino (Target)
 		board.placePiece(p, target);
+		//	121- retornando o capturedPiece
 		return capturedPiece;
 	}
-	
+	//	114- Criamos um metodo para validar a origem 
 	private void validateSourcePosition(Position position) {
+		//	115- Testando se não existe uma peça nessa posição
 		if(!board.thereIsAPiece(position)) {
+			//	116- Caso não exista
 			throw new ChessException("There is no piece on source position");
 		}
 	}
