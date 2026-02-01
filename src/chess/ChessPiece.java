@@ -3,7 +3,8 @@ package chess;
 import boardgame.Board;
 import boardgame.Piece;
 //	20- Criamos uma Subclasse de Piece e vai ter a Cor e outros elementos, ela herda as peças do tabuleiro
-public class ChessPiece extends Piece {
+//	146- Transformamos a Subclasse de Piece em uma Subclasse abstract porque o Piece tambem o eh e a Class ChessPiece é muito genérica para assumir os metodos abstratos também
+public abstract class ChessPiece extends Piece {
 	private Color color;
 	//	21- Criando um construtor porque a classe ChessPiece é uma Subclasse e na classe mãe ela já usa o construtor
 	public ChessPiece(Board board, Color color) {
@@ -16,6 +17,4 @@ public class ChessPiece extends Piece {
 	public Color getColor() {
 		return color;
 	}
-	
-	
 }

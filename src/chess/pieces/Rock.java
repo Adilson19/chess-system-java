@@ -15,4 +15,13 @@ public class Rock extends ChessPiece{
 	public String toString() {
 		return "R";
 	}
+	
+	//	150- implementamos os metodos abstract como Sobreposição de métodos
+	@Override
+	public boolean[][] possibleMoves() {
+		//	151- Criando as possiveis movimentações do Rei - criamos uma matriz de Booleanos da mesma dimensão do tabuleiro
+		boolean[][] mat= new boolean[getBoard().getRows()][getBoard().getColumns()];
+		//	152- Retornando a matriz
+		return mat;
+	}
 }

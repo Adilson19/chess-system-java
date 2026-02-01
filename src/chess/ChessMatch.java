@@ -59,6 +59,11 @@ public class ChessMatch {
 			//	116- Caso não exista
 			throw new ChessException("There is no piece on source position");
 		}
+		//	153- Atualizar a regra de validar a posição de origem  de uma peça, se não tiver nenhum movimento possível no tabuleiro
+		if(!board.piece(position).isThereAnyPossibleMove()) {
+			// 154- Lançamos uma exceção caso isso aconteça
+			throw new ChessException("There is no possible moves for the chosen piece");			
+		}		
 	}
 	//	88- Criamos o método placeNewPiece para receber as coordenadas do xadrez e a peça
 	private void placeNewPiece(char column, int row, ChessPiece piece) {

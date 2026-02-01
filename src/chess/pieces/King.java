@@ -16,4 +16,12 @@ public class King extends ChessPiece {
 	public String toString() {
 		return "K";
 	}
+	//	147- implementamos os metodos abstract como Sobreposição de métodos
+	@Override
+	public boolean[][] possibleMoves() {
+		//	148- Criando as possiveis movimentações do Rei - criamos uma matriz de Booleanos da mesma dimensão do tabuleiro
+		boolean[][] mat= new boolean[getBoard().getRows()][getBoard().getColumns()];
+		//	149- Retornando a matriz
+		return mat;
+	}
 }
