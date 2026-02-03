@@ -32,10 +32,14 @@ public class ChessMatch {
 	//	109- Metodo para mover a peça, recebe a origem e o destino
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		//	110- Convertendo as posições das peças para posições da matriz
+		//	Origem
 		Position source = sourcePosition.toPosition();
+		//	Destino
 		Position target = targetPosition.toPosition();
 		//	111- Validando a posição de origem
 		validateSourcePosition(source);
+		//	184- Validando a posição de destino
+		validateTargetPosition(source, target);
 		//	112- Declaramos uma variavel do tipo Piece e ela vai receber o metodo para realizar um movimento de um ponto para outro
 		Piece capturedPiece = makeMove(source, target);
 		//	113- Retorna a peça capturada e fazemos um downcast porque o capturedPiece era do tipo Piece e ele agora vai retornar um tipo ChessPiece
@@ -65,6 +69,16 @@ public class ChessMatch {
 			throw new ChessException("There is no possible moves for the chosen piece");			
 		}		
 	}
+	//	185- Implementando o metodo para validar o destino
+	private void validateTargetPosition(Position source, Position target) {
+		//	186- Testando se para a peça de origem para a posição de origem não é um movimento possível
+		if(!board.piece(source).possibleMove(target)) {
+			//	187- Lançando uma mensagem dizendo que não pode mover para a posição de destino
+			throw new ChessException("The chosen piece can't move to target position");
+		}
+	}
+	
+	
 	//	88- Criamos o método placeNewPiece para receber as coordenadas do xadrez e a peça
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		//		89- Pegamos o metodo que sabe o local da peça, criamos uma nova posição e convertemos para posição de matriz(toString)

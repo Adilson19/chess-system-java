@@ -25,6 +25,14 @@ public class Position {
 	public void setColumn(int column) {
 		this.column = column;
 	}	
+	
+	//	160-  colocando o que faltou, que sao os Sets - essa operação serve para atualizar os valores
+	public void setValues(int row, int column) {
+		this.row = row;
+		this.column = column;
+	}
+	
+	
 	//	4- Criamos um toString para imprimir os valores na tela
 	@Override
 	public String toString() {
