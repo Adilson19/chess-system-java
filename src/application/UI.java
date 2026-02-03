@@ -67,8 +67,23 @@ public class UI {
 		for(int i = 0; i<pieces.length; i++) {
 			System.out.print((8 - i) + " ");
 			for(int j = 0; j<pieces.length; j++) {
+				//	40- Imprimindo a peça
+				//	199- Colocamos o false para indicar que nenhuma peça é para ter o fundo colorido
+				printPiece(pieces[i][j], false);
+			}
+			System.out.println();
+		}
+		//	41- Linha Especial para imprimir as letras
+		System.out.println("  a b c d e f g h");
+	}
+	//	195- Outra versão do PrintBoard
+	public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
+		for(int i = 0; i<pieces.length; i++) {
+			System.out.print((8 - i) + " ");
+			for(int j = 0; j<pieces.length; j++) {
 				// 40- Imprimindo a peça
-				printPiece(pieces[i][j]);
+				//	200- Colocamos o possibleMoves nas respectivas posições quando é para passar a cor também
+				printPiece(pieces[i][j], possibleMoves[i][j]);
 			}
 			System.out.println();
 		}
@@ -76,7 +91,13 @@ public class UI {
 		System.out.println("  a b c d e f g h");
 	}
 	//	36- Método usado para imprimir as peças
-	private static void printPiece(ChessPiece piece) {
+	//	196- Atualizando os parametros colocando o boolean background
+	private static void printPiece(ChessPiece piece, boolean background) {
+		//	197- Testando se a variavel background é verdadeira
+		if(background) {
+			//	198- Colocando a cor de fundo de azul
+			System.out.print(ANSI_BLUE_BACKGROUND);
+		}
 		//	37- Se as peças for igual a null então vai preencher com (-)
     	if (piece == null) {
             System.out.print("-");

@@ -29,6 +29,14 @@ public class Program {
 				//	125- Para ler o valor digitado
 				ChessPosition source = UI.readChessPosition(sc);
 
+				//	192- Vamos receber os possiveis movimentos apartir de uma variavel de origem 
+				boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+				//	193- Limpando a tela
+				UI.clearScreen();
+				UI ui = new UI();
+				//	194- Imprimindo de novo o tabuleiro
+				UI.printBoard(chessMatch.getPieces(), possibleMoves);
+
 				System.out.println();
 				//	126- Para digitar o Destino
 				System.out.print("Target: ");
