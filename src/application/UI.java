@@ -100,7 +100,7 @@ public class UI {
 		}
 		//	37- Se as peças for igual a null então vai preencher com (-)
     	if (piece == null) {
-            System.out.print("-");
+            System.out.print("-" + ANSI_RESET);
         }//	38- Caso contrário vai imprimir a peça
         else {
         	//	92- Colocamos um código específico para imprimir as cores condicionalmente
